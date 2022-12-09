@@ -8,7 +8,6 @@ const colors = {
   black: "#3a4750",
 };
 const FhatherName = styled.div`
-  /* border: solid 3px red; */
   display: flex;
   height: auto;
   justify-items: center;

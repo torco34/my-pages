@@ -9,6 +9,7 @@ import { Skills } from "./containerPages/Skills";
 import { NotFund } from "./containerPages/NotFund";
 import { Project } from "./containerPages/Project";
 import { Name } from "./components/Name";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<AboutMe />}></Route>
         <Route path="*" element={<NotFund />}></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 }

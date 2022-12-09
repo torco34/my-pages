@@ -1,17 +1,20 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import img from "../assets/img/img3.jpg";
-import { ContaineStyled } from "../assets/styled/Home";
-import video from "../assets/img/video (1).mp4";
-import { Project } from "./Project";
+import { TextTecno } from "../components/TextTecno";
+import { ImgHome } from "../components/ImgHome";
 function Home() {
   return (
-    <>
-      <Project />
-
-      <h1>hola mundo</h1>
-    </>
+    <Container>
+      <Row>
+        <Col className="" lg={true}>
+          <TextTecno />
+        </Col>
+        <Col className="" lg={true}>
+          <ImgHome />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
