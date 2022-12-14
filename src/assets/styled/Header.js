@@ -2,10 +2,7 @@ import styled from "styled-components";
 const colors = {
   dark: "#333",
   white: "#f5f6f7",
-  blue: "#66bfbf",
-  gray: "#ccc",
-  silver: "#f5f5f7",
-  black: "#3a4750",
+  blue: "#87A2FB",
 };
 const Fhather = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);

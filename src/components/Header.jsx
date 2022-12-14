@@ -22,7 +22,7 @@ function Header() {
                     <li key={navbar.to}>
                       <NavLink
                         style={({ isActive }) => ({
-                          color: isActive ? " #66bfbf" : "#333",
+                          color: isActive ? " #87A2FB" : "#333",
                           borderBottom: isActive ? "solid" : "",
                         })}
                         to={navbar.to}
@@ -44,16 +44,16 @@ function Header() {
 export { Header };
 const navbars = [];
 navbars.push({
-  to: "/home",
+  to: "/",
   text: "Home",
 });
 navbars.push({
   to: "/project",
-  text: "Project",
+  text: "Iniciar section",
 });
 navbars.push({
   to: "/skills",
-  text: "Skills",
+  text: "Registrase",
 });
 navbars.push({
   to: "/about",
