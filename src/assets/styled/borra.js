@@ -1,10 +1,10 @@
 import styled from "styled-components";
 const colors = {
-  dark: "#333",
+  purple: "#472183",
   white: "#f5f6f7",
-  blue: "#66bfbf",
-  gray: "#ccc",
-  silver: "#f5f5f7",
+  blue: "#4B56D2",
+  blue2: "#82C3EC",
+  silver: "#F1F6F5",
   black: "#3a4750",
 };
 const Fhather = styled.div``;

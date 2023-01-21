@@ -1,21 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { DeshborPges, HomePges, LoginPges, RegistrePges } from "./pages";
-
-import { Header } from "./components/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header } from "./components";
+import { DashboarView, Home, LoginView, EditProfileView } from "./pages";
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/home" element={<HomePges />}></Route>
-        <Route path="/project" element={<LoginPges />}></Route>
-        <Route path="/skills" element={<RegistrePges />}></Route>s
-        <Route path="*" element={<DeshborPges />}></Route>
-      </Routes>
-      {/* <Footer /> */}
-    </Router>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<LoginView />} />
+          <Route path="deshboar" element={<DashboarView />} />
+          <Route path="deshboar/profile" element={<EditProfileView />} />
+          <Route path="signout" element={<EditProfileView />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
