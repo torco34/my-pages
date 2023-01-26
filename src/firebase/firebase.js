@@ -6,6 +6,7 @@ import {
   uploadBytes,
   getDownloadURL,
   getBytes,
+  connectStorageEmulator,
 } from "firebase/storage";
 import {
   getFirestore,
@@ -19,15 +20,21 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_AUTHDOMAINREACT_APP_PROJECTID,
-  storageBucket: process.env.REACT_APP_STOREGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_MSSAGINGSENDERLD,
-  appId: process.env.REACT_APP_APPID,
+  apiKey: "AIzaSyDCAt7YLsyzNhJtZAFD1t8PrsZpvwh81YQ",
+  authDomain: "trilink-tuturial.firebaseapp.com",
+  projectId: "trilink-tuturial",
+  storageBucket: "trilink-tuturial.appspot.com",
+  messagingSenderId: "366393441879",
+  appId: "1:366393441879:web:f3153394ed5057e958ad12",
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
+export async function userExists(uid) {
+  const docRef = doc(db, "user", uid);
+  const res = await getDoc(docRef);
+  console.log(res);
+  return res.exists();
+}

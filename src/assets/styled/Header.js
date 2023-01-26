@@ -4,7 +4,7 @@ const colors = {
   white: "#f5f6f7",
   blue: "#87A2FB",
 };
-const Fhather = styled.div`
+const ContainerHeader = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   a {
     text-decoration: none;
@@ -39,4 +39,4 @@ const ListaLink = styled.div`
   }
 `;
 
-export { ListaLink, Fhather };
+export { ListaLink, ContainerHeader };
