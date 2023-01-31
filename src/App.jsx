@@ -17,10 +17,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="login" element={<LoginView />} />
-          <Route path="deshboar" element={<DashboarView />} />
-          <Route path="deshboar/profile" element={<EditProfileView />} />
-          <Route path="signout" element={<EditProfileView />} />
+          <Route path="/login" element={<LoginView />} />
+          <Route path="/deshboar" element={<DashboarView />} />
+          <Route path="/deshboar/profile" element={<EditProfileView />} />
+          <Route path="/signout" element={<EditProfileView />} />
           <Route path="u/:username" element={<PublicProfileView />} />
           <Route path="choose-username" element={<ChooseProfileView />} />
         </Routes>

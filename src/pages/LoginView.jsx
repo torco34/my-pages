@@ -7,8 +7,12 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { async } from "@firebase/util";
+import { AuthProvaide } from "../components/AuthProvaide";
 
 export const LoginView = () => {
+  const navigates = useNavigate();
   /*
   state
   o: inicializar
@@ -18,30 +22,32 @@ export const LoginView = () => {
   4: no hay loguin
   
   */
-  const [currentUser, setCurrentUser] = useState(null);
+
+  // const [currentUser, setCurrentUser] = useState(null);
   const [state, setCurrentsState] = useState(0);
-  useEffect(() => {
-    setCurrentsState(1);
-    onAuthStateChanged(auth, handleUseStateChend);
-  }, []);
+  // useEffect(() => {
+  //   setCurrentsState(1);
+  //   onAuthStateChanged(auth, async (user) => {
+  //     if (user) {
+  //       const isRegistered = await userExists(user.uid);
+  //       if (isRegistered) {
+  //         //TODO redirigir a dashboard
 
-  async function handleUseStateChend(user) {
-    if (user) {
-      const isRegistered = await userExists(user.uid);
-      if (isRegistered) {
-        //TODO redirigir a dashboard
-        setCurrentsState(2);
-      } else {
-        // TODO redirigido a choose user
-        setCurrentsState(3);
-      }
+  //         navigates("/deshboar");
+  //         setCurrentsState(2);
+  //       } else {
+  //         navigates("/choose-username");
+  //         setCurrentsState(3);
+  //       }
 
-      console.log(user.displayName);
-    } else {
-      setCurrentsState(4);
-      console.log("no hay");
-    }
-  }
+  //       console.log(user.displayName);
+  //     } else {
+  //       setCurrentsState(4);
+  //       console.log("no hay");
+  //     }
+  //   });
+  // }, [navigates]);
+
   async function handleOnClick() {
     const googleProvider = new GoogleAuthProvider();
     await signInWithGoogle(googleProvider);
@@ -55,6 +61,15 @@ export const LoginView = () => {
       }
     }
   }
+  function handleUserLoggedIn(user) {
+    navigates("/deshboar");
+  }
+  function handleOnUserNotRegiste(user) {
+    navigates("/choose-username");
+  }
+  function handleOnUserNotLoggedIn() {
+    setCurrentsState(4);
+  }
 
   if (state === 2) {
     return <div> Estas autenticad y registrado</div>;
@@ -65,11 +80,18 @@ export const LoginView = () => {
   if (state === 4) {
     return (
       <>
-        hola
         <button onClick={handleOnClick}>Login with Google</button>
       </>
     );
   }
 
-  return <>louding....</>;
+  return (
+    <AuthProvaide
+      onUserLoggedIn={handleUserLoggedIn}
+      onUserNotRegiste={handleOnUserNotRegiste}
+      onUserNotLoggedIn={handleOnUserNotLoggedIn}
+    >
+      <div>Londing...</div>
+    </AuthProvaide>
+  );
 };

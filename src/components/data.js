@@ -4,7 +4,11 @@ navbar.push({
   text: "Home",
 });
 navbar.push({
-  to: "login",
+  to: "/login",
   text: "Login",
+});
+navbar.push({
+  to: "/deshboar/profile",
+  text: "profil",
 });
 export { navbar };
