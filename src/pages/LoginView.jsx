@@ -71,12 +71,12 @@ export const LoginView = () => {
     setCurrentsState(4);
   }
 
-  if (state === 2) {
-    return <div> Estas autenticad y registrado</div>;
-  }
-  if (state === 3) {
-    return <div> Estas autenticad pero no registrado</div>;
-  }
+  // if (state === 2) {
+  //   return <div> Estas autenticado y registrado</div>;
+  // }
+  // if (state === 3) {
+  //   return <div> Estas autenticad pero no registrado</div>;
+  // }
   if (state === 4) {
     return (
       <>
@@ -85,6 +85,13 @@ export const LoginView = () => {
     );
   }
 
+  if (state === 5) {
+    return (
+      <>
+        <button onClick={handleOnClick}>Login with Google</button>
+      </>
+    );
+  }
   return (
     <AuthProvaide
       onUserLoggedIn={handleUserLoggedIn}

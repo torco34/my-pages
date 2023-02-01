@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { auth, userExists } from "../firebase/firebase";
+import { auth, registerNewUser, userExists } from "../firebase/firebase";
 // import { async } from "@firebase/util";
 import {
   GoogleAuthProvider,
@@ -26,6 +26,13 @@ export const AuthProvaide = ({
         if (isRegistered) {
           onUserLoggedIn(user);
         } else {
+          await registerNewUser({
+            uid: user.uid,
+            displayName: user.displayName,
+            profilePicture: "",
+            username: "",
+            processCompleted: false,
+          });
           onUserNotRegiste(user);
         }
 

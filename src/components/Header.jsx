@@ -20,7 +20,7 @@ export const Header = () => {
           </li>
         ))}
       </ContainerHeader>
-      <p>saber</p>
+      <p>...</p>
       {import.meta.env.VITE_APP_SALUDO}
     </>
   );

@@ -18,14 +18,16 @@ import {
   where,
   setDoc,
   deleteDoc,
+  getDocs,
+  QuerySnapshot,
 } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: "AIzaSyDCAt7YLsyzNhJtZAFD1t8PrsZpvwh81YQ",
-  authDomain: "trilink-tuturial.firebaseapp.com",
-  projectId: "trilink-tuturial",
-  storageBucket: "trilink-tuturial.appspot.com",
-  messagingSenderId: "366393441879",
-  appId: "1:366393441879:web:f3153394ed5057e958ad12",
+  apiKey: import.meta.env.VITE_APP_APIKEY,
+  authDomain: import.meta.env.VITE_APP_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_APP_PROJECTID,
+  storageBucket: import.meta.env.VITE_APP_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_APP_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APP_APPID,
 };
 
 export const app = initializeApp(firebaseConfig);
@@ -37,4 +39,33 @@ export async function userExists(uid) {
   const res = await getDoc(docRef);
   console.log(res);
   return res.exists();
+}
+
+export async function existsUsername(username) {
+  const users = [];
+  const docRef = collection(db, "user");
+  const q = query(docsRef, where("username", "==", username));
+  const querySnapshot = await getDocs(q);
+
+  QuerySnapshot.forEach((doc) => {
+    users, push(doc.data());
+  });
+
+  return users.length > 0 ? users[0].uid : null;
+}
+
+export async function registerNewUser(users) {
+  try {
+    const collectionRef = collection(db, "user");
+    const docRef = doc(collectionRef, user.id);
+    await setDoc(docRef, user);
+  } catch (error) {}
+}
+
+export async function updateUser(users) {
+  try {
+    const collectionRef = collection(db, "user");
+    const docRef = doc(collectionRef, user.uid);
+    await setDoc(docRef, user);
+  } catch (error) {}
 }
