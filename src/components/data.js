@@ -8,6 +8,10 @@ navbar.push({
   text: "Login",
 });
 navbar.push({
+  to: "/deshboar",
+  text: "profil",
+});
+navbar.push({
   to: "/deshboar/profile",
   text: "profil",
 });

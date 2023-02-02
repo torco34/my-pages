@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../components/AuthProvaide";
 import { existsUsername, updateUser } from "../firebase/firebase";
 
-export const ChooseProfileView = () => {
+export const ChooseUserName = () => {
   const [state, setState] = useState(0);
   const [currentUser, setCurrentUser] = useState({});
   const [userName, setUserName] = useState("");
@@ -37,13 +37,12 @@ export const ChooseProfileView = () => {
     }
   }
 
-  if (state === 3 || state === 5) {
+  if (state === 3 || state === 4) {
     return (
       <div>
         {currentUser.displayName}
-        <p>
-          Para terminar el proceso elige un nombre del usuario
-        </p> Bienvenido {state === 5 ? <p>El nombre ya existe</p> : ""}
+        <p>Para terminar el proceso elige un nombre del usuario</p>
+        <p> Bienvenido {state === 5 ? <p>El nombre ya existe</p> : ""}</p>
         <div>
           <input type="text" onInput={handleUserName} />
         </div>

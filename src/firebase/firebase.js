@@ -22,12 +22,19 @@ import {
   QuerySnapshot,
 } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APP_APIKEY,
-  authDomain: import.meta.env.VITE_APP_AUTHDOMAIN,
-  projectId: import.meta.env.VITE_APP_PROJECTID,
-  storageBucket: import.meta.env.VITE_APP_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_APP_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_APP_APPID,
+  // apiKey: import.meta.env.VITE_APP_APIKEY,
+  // authDomain: import.meta.env.VITE_APP_AUTHDOMAIN,
+  // projectId: import.meta.env.VITE_APP_PROJECTID,
+  // storageBucket: import.meta.env.VITE_APP_STORAGEBUCKET,
+  // messagingSenderId: import.meta.env.VITE_APP_MESSAGINGSENDERID,
+  // appId: import.meta.env.VITE_APP_APPID,
+
+  apiKey: "AIzaSyDCAt7YLsyzNhJtZAFD1t8PrsZpvwh81YQ",
+  authDomain: "trilink-tuturial.firebaseapp.com",
+  projectId: "trilink-tuturial",
+  storageBucket: "trilink-tuturial.appspot.com",
+  messagingSenderId: "366393441879",
+  appId: "1:366393441879:web:f3153394ed5057e958ad12",
 };
 
 export const app = initializeApp(firebaseConfig);

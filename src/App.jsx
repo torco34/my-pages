@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "./components";
+import { Header } from "./components/Header";
+
 import {
   DashboarView,
   Home,
   LoginView,
   EditProfileView,
   PublicProfileView,
-  ChooseProfileView,
+  ChooseUserName,
+  SignOutView,
 } from "./pages";
 
 function App() {
@@ -17,12 +19,12 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginView />} />
-          <Route path="/deshboar" element={<DashboarView />} />
-          <Route path="/deshboar/profile" element={<EditProfileView />} />
-          <Route path="/signout" element={<EditProfileView />} />
+          <Route path="login" element={<LoginView />} />
+          <Route path="deshboar" element={<DashboarView />} />
+          <Route path="deshboar/profile" element={<EditProfileView />} />
+          <Route path="signout" element={<SignOutView />} />
           <Route path="u/:username" element={<PublicProfileView />} />
-          <Route path="choose-username" element={<ChooseProfileView />} />
+          <Route path="choose-username" element={<ChooseUserName />} />
         </Routes>
       </BrowserRouter>
     </>
