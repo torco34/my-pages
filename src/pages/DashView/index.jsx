@@ -5,6 +5,7 @@ import { AuthProvaide } from "../../components/AuthProvaide";
 import { DashboardWrapper } from "../../components/DashboardWrapper/index";
 import { v4 as uuidv4 } from "uuid";
 import { getLinks, insertNewLink } from "../../firebase/firebase";
+import { Linkcomp } from "../../components/Linkcomp";
 
 export const DashView = () => {
   const navigate = useNavigate();
@@ -65,7 +66,8 @@ export const DashView = () => {
       setUrl(value);
     }
   }
-
+  function handleOnDelete() {}
+  function handleOnUpdata() {}
   return (
     <DashboardWrapper>
       <div>
@@ -81,9 +83,13 @@ export const DashView = () => {
       </div>
       <div>
         {links.map((link) => (
-          <div key={link.id}>
-            <a href={link.url}>{link.title}</a>
-          </div>
+          <Linkcomp
+            key={link.docId}
+            url={link.url}
+            title={link.title}
+            onDelete={handleOnDelete}
+            onUpdata={handleOnUpdata}
+          />
         ))}
       </div>
     </DashboardWrapper>
