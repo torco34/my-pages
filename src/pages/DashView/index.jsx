@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../../components/AuthProvaide";
 import { DashboardWrapper } from "../../components/DashboardWrapper/index";
+import { v4 as uuidv4 } from "uuid";
+import { insertNewLink } from "../../firebase/firebase";
 
 export const DashView = () => {
   const navigate = useNavigate();
@@ -10,7 +12,7 @@ export const DashView = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
-
+  const [links, setLinks] = useState([]);
   function handleUserLoggedIn(user) {
     setCurrentUser(user);
     setState(2);
@@ -34,6 +36,23 @@ export const DashView = () => {
   }
   function handleOnSubmit(e) {
     e.preventDefault();
+    addLink();
+  }
+
+  function addLink() {
+    if (title != " " && url != "") {
+      const newLink = {
+        id: uuidv4(),
+        title: title,
+        url: url,
+        uid: currentUser.uid,
+      };
+      const res = insertNewLink(newLink);
+      newLink.docId = res.id;
+      setTitle("");
+      setUrl("");
+      setLinks([...links, newLink]);
+    }
   }
   function handleOnChange(e) {
     const value = e.target.value;
@@ -54,6 +73,8 @@ export const DashView = () => {
           <input type="text" name="title" onChange={handleOnChange} />
           <label htmlFor="url">url</label>
           <input type="text" name="url" onChange={handleOnChange} />
+
+          <input type="submit" value="create nuevo link" />
         </form>
       </>
     </DashboardWrapper>
