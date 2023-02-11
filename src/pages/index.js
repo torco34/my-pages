@@ -5,3 +5,4 @@ export * from "./EditProfileView";
 export * from "./ChooseUserName";
 export * from "./PublicProfileView";
 export * from "./SignOutView";
+export * from "./DashView/index";

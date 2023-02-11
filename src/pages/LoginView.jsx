@@ -20,6 +20,8 @@ export const LoginView = () => {
   2: login completo
   3:login pero sin registro
   4: no hay loguin
+  5: ya existe username
+  6: nuevo username click para continuar
   
   */
 
@@ -67,16 +69,16 @@ export const LoginView = () => {
   function handleOnUserNotRegiste(user) {
     navigates("/choose-username");
   }
-  function handleOnUserNotLoggedIn() {
-    setCurrentsState(4);
+  function handleOnUserNotLoggedIn(user) {
+    setCurrentsState(user);
   }
 
-  // if (state === 2) {
-  //   return <div> Estas autenticado y registrado</div>;
-  // }
-  // if (state === 3) {
-  //   return <div> Estas autenticad pero no registrado</div>;
-  // }
+  if (state === 2) {
+    return <div> Estas autenticado y registrado</div>;
+  }
+  if (state === 3) {
+    return <div> Estas autenticad pero no registrado</div>;
+  }
   if (state === 4) {
     return (
       <>

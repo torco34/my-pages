@@ -21,12 +21,13 @@ import {
   getDocs,
   QuerySnapshot,
 } from "firebase/firestore";
+
 const firebaseConfig = {
   // apiKey: import.meta.env.VITE_APP_APIKEY,
   // authDomain: import.meta.env.VITE_APP_AUTHDOMAIN,
   // projectId: import.meta.env.VITE_APP_PROJECTID,
   // storageBucket: import.meta.env.VITE_APP_STORAGEBUCKET,
-  // messagingSenderId: import.meta.env.VITE_APP_MESSAGINGSENDERID,
+  // messagingSenderId: import.meta.env.VITE_APP_MASSAGINGSENDERID,
   // appId: import.meta.env.VITE_APP_APPID,
 
   apiKey: "AIzaSyDCAt7YLsyzNhJtZAFD1t8PrsZpvwh81YQ",
@@ -42,7 +43,7 @@ export const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 export async function userExists(uid) {
-  const docRef = doc(db, "user", uid);
+  const docRef = doc(db, "users", uid);
   const res = await getDoc(docRef);
   console.log(res);
   return res.exists();
@@ -50,29 +51,36 @@ export async function userExists(uid) {
 
 export async function existsUsername(username) {
   const users = [];
-  const docRef = collection(db, "user");
+  const docsRef = collection(db, "users");
   const q = query(docsRef, where("username", "==", username));
   const querySnapshot = await getDocs(q);
 
-  QuerySnapshot.forEach((doc) => {
-    users, push(doc.data());
+  querySnapshot.forEach((doc) => {
+    users.push(doc.data());
   });
 
   return users.length > 0 ? users[0].uid : null;
 }
 
-export async function registerNewUser(users) {
+export async function registerNewUser(user) {
   try {
-    const collectionRef = collection(db, "user");
-    const docRef = doc(collectionRef, user.id);
+    const collectionRef = collection(db, "users");
+    const docRef = doc(collectionRef, user.uid);
     await setDoc(docRef, user);
   } catch (error) {}
 }
 
-export async function updateUser(users) {
+export async function updateUser(user) {
   try {
-    const collectionRef = collection(db, "user");
+    const collectionRef = collection(db, "users");
     const docRef = doc(collectionRef, user.uid);
     await setDoc(docRef, user);
+  } catch (error) {}
+}
+export async function getUserInfo(uid) {
+  try {
+    const docRef = doc(db, "users", uid);
+    const document = await getDoc(docRef);
+    return document.data();
   } catch (error) {}
 }

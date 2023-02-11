@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { navbar } from "./data";
-import { ContainerHeader } from "../assets/styled/Header";
+import { navbar } from "../data";
+import { ContainerHeader } from "./styles";
 export const Header = () => {
   return (
     <>

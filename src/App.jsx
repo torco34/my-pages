@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "./components/Header";
+import { DashboardWrapper } from "./components/DashboardWrapper";
+import { Header } from "./components/Hedaer";
 
 import {
   DashboarView,
@@ -10,6 +11,7 @@ import {
   PublicProfileView,
   ChooseUserName,
   SignOutView,
+  DashView,
 } from "./pages";
 
 function App() {
@@ -17,10 +19,11 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
+        <DashboardWrapper />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<LoginView />} />
-          <Route path="deshboar" element={<DashboarView />} />
+          <Route path="deshboar" element={<DashView />} />
           <Route path="deshboar/profile" element={<EditProfileView />} />
           <Route path="signout" element={<SignOutView />} />
           <Route path="u/:username" element={<PublicProfileView />} />

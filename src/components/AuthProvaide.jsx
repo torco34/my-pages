@@ -1,7 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { auth, registerNewUser, userExists } from "../firebase/firebase";
+import {
+  auth,
+  getUserInfo,
+  registerNewUser,
+  userExists,
+} from "../firebase/firebase";
 // import { async } from "@firebase/util";
 import {
   GoogleAuthProvider,
@@ -11,20 +16,26 @@ import {
 import { useEffect, useState } from "react";
 
 import { async } from "@firebase/util";
-
 export const AuthProvaide = ({
   children,
   onUserLoggedIn,
   onUserNotLoggedIn,
   onUserNotRegiste,
 }) => {
-  const navigates = useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const isRegistered = await userExists(user.uid);
+
         if (isRegistered) {
-          onUserLoggedIn(user);
+          const userInfo = await getUserInfo(user.uid);
+
+          if (userInfo.processCompleted) {
+            onUserLoggedIn(userInfo);
+          } else {
+            onUserNotRegiste(userInfo);
+          }
         } else {
           await registerNewUser({
             uid: user.uid,
@@ -41,6 +52,6 @@ export const AuthProvaide = ({
         onUserNotLoggedIn();
       }
     });
-  }, [navigates]);
+  }, [navigate, onUserLoggedIn, onUserNotRegiste, onUserNotLoggedIn]);
   return <>{children}</>;
 };
