@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../../components/AuthProvaide";
 import { DashboardWrapper } from "../../components/DashboardWrapper/index";
 import { v4 as uuidv4 } from "uuid";
-import { insertNewLink } from "../../firebase/firebase";
+import { getLinks, insertNewLink } from "../../firebase/firebase";
 
 export const DashView = () => {
   const navigate = useNavigate();
@@ -13,9 +13,11 @@ export const DashView = () => {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [links, setLinks] = useState([]);
-  function handleUserLoggedIn(user) {
+  async function handleUserLoggedIn(user) {
     setCurrentUser(user);
     setState(2);
+    const resLinks = await getLinks(user.uid);
+    setLinks([...resLinks]);
   }
   function handleOnUserNotRegiste(user) {
     navigate("/login");
@@ -66,7 +68,7 @@ export const DashView = () => {
 
   return (
     <DashboardWrapper>
-      <>
+      <div>
         <h1>dash</h1>
         <form action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
@@ -76,7 +78,14 @@ export const DashView = () => {
 
           <input type="submit" value="create nuevo link" />
         </form>
-      </>
+      </div>
+      <div>
+        {links.map((link) => (
+          <div key={link.id}>
+            <a href={link.url}>{link.title}</a>
+          </div>
+        ))}
+      </div>
     </DashboardWrapper>
   );
 };
