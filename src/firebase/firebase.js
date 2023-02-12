@@ -100,7 +100,7 @@ export async function getLinks(uid) {
     const q = query(collectionRef, where("uid", "==", uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      const link = { ...doc.data };
+      const link = { ...doc.data() };
       link.docId = doc.id;
       links.push(link);
     });
