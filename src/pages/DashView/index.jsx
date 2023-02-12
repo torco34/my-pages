@@ -67,10 +67,14 @@ export const DashView = () => {
     }
   }
   function handleOnDelete() {}
-  function handleOnUpdata() {}
+  function handleOnUpdata(docId, title, url) {
+    const link = links.find((item) => item.docId === docId);
+    link.title = title;
+    link.url = url;
+  }
   return (
     <DashboardWrapper>
-      <div>
+      <div className="container link link ">
         <h1>dash</h1>
         <form action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
