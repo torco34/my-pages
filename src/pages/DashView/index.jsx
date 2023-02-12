@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../../components/AuthProvaide";
 import { DashboardWrapper } from "../../components/DashboardWrapper/index";
 import { v4 as uuidv4 } from "uuid";
-import { getLinks, insertNewLink } from "../../firebase/firebase";
+import { getLinks, insertNewLink, updateLink } from "../../firebase/firebase";
 import { Linkcomp } from "../../components/Linkcomp";
 
 export const DashView = () => {
@@ -67,15 +67,16 @@ export const DashView = () => {
     }
   }
   function handleOnDelete() {}
-  function handleOnUpdata(docId, title, url) {
+  async function handleOnUpdate(docId, title, url) {
     const link = links.find((item) => item.docId === docId);
     link.title = title;
     link.url = url;
+    await updateLink(docId, link);
   }
   return (
     <DashboardWrapper>
       <div className="container link link ">
-        <h1>dash</h1>
+        <h1>dashW</h1>
         <form action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
           <input type="text" name="title" onChange={handleOnChange} />
@@ -89,10 +90,11 @@ export const DashView = () => {
         {links.map((link) => (
           <Linkcomp
             key={link.docId}
+            docId={link.docId}
             url={link.url}
             title={link.title}
             onDelete={handleOnDelete}
-            onUpdata={handleOnUpdata}
+            onUpdate={handleOnUpdate}
           />
         ))}
       </div>

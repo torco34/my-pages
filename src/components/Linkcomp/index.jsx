@@ -31,11 +31,11 @@ export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
   function handleOnChangeUrl(e) {
     setCurrentUrl(e.target.value);
   }
-  function handleOnBlurTitle() {
+  function handleOnBlurTitle(e) {
     setEditTitle(false);
     onUpdate(docId, currentTitle, currentUrl);
   }
-  function handleOnBlurUrl() {
+  function handleOnBlurUrl(e) {
     setEditUrl(false);
     onUpdate(docId, currentTitle, currentUrl);
   }
