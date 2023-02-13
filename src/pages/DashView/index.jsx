@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../../components/AuthProvaide";
 import { DashboardWrapper } from "../../components/DashboardWrapper/index";
 import { v4 as uuidv4 } from "uuid";
-import { getLinks, insertNewLink, updateLink } from "../../firebase/firebase";
+import { deleteLink, getLinks, insertNewLink } from "../../firebase/firebase";
 import { Linkcomp } from "../../components/Linkcomp";
 
 export const DashView = () => {
@@ -66,7 +66,12 @@ export const DashView = () => {
       setUrl(value);
     }
   }
-  function handleOnDelete() {}
+  async function handleOnDelete(docId) {
+    await deleteLink(docId);
+
+    const tmp = links.filter((link) => link.docId != docId);
+    setLinks([...tmp]);
+  }
   async function handleOnUpdate(docId, title, url) {
     const link = links.find((item) => item.docId === docId);
     link.title = title;

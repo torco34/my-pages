@@ -39,6 +39,9 @@ export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
     setEditUrl(false);
     onUpdate(docId, currentTitle, currentUrl);
   }
+  function handleOnClick(e) {
+    onDelete(docId);
+  }
   return (
     <>
       <div className="link link-warning" key={docId}>
@@ -81,7 +84,9 @@ export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
             </>
           )}
         </div>
-        <button className="btn btn-danger m-2">Delete</button>
+        <button onClick={handleOnClick} className="btn btn-danger m-2">
+          Delete
+        </button>
       </div>
     </>
   );
