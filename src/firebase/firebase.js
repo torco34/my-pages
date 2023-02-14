@@ -146,3 +146,12 @@ export async function getProfilePhotoUrl(profilePicture) {
     console.error(error);
   }
 }
+export async function getUserPublicProfileInfo(uid) {
+  const profileInfo = await getUserInfo(uid);
+  const linksInfo = await getLinks(uid);
+
+  return {
+    profileInfo: profileInfo,
+    linksInfo: linksInfo,
+  };
+}

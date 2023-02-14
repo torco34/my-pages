@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <DashboardWrapper />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,7 +26,7 @@ function App() {
           <Route path="deshboar" element={<DashView />} />
           <Route path="deshboar/profile" element={<EditProfileView />} />
           <Route path="signout" element={<SignOutView />} />
-          <Route path="u/:username" element={<PublicProfileView />} />
+          <Route path="/u" element={<PublicProfileView />} />
           <Route path="choose-username" element={<ChooseUserName />} />
         </Routes>
       </BrowserRouter>
