@@ -25,9 +25,9 @@ function App() {
           <Route path="/login" element={<LoginView />} />
           <Route path="/dashboard" element={<DashView />} />
           <Route path="/dashboard/profile" element={<EditProfileView />} />
-          <Route path="signout" element={<SignOutView />} />
+          <Route path="/signout" element={<SignOutView />} />
           <Route path="u/:username" element={<PublicProfileView />} />
-          <Route path="choose-username" element={<ChooseUserName />} />
+          <Route path="/choose-username" element={<ChooseUserName />} />
         </Routes>
       </BrowserRouter>
     </>

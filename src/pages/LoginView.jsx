@@ -12,7 +12,7 @@ import { async } from "@firebase/util";
 import { AuthProvaide } from "../components/AuthProvaide";
 
 export const LoginView = () => {
-  const navigates = useNavigate();
+  const navigate = useNavigate();
   /*
   state
   o: inicializar
@@ -64,13 +64,13 @@ export const LoginView = () => {
     }
   }
   function handleUserLoggedIn(user) {
-    navigates("/deshboar");
+    navigate("/dashboard");
   }
   function handleOnUserNotRegiste(user) {
-    navigates("/choose-username");
+    navigate("/choose-username");
   }
-  function handleOnUserNotLoggedIn(user) {
-    setCurrentsState(user);
+  function handleOnUserNotLoggedIn() {
+    setCurrentsState(4);
   }
 
   if (state === 2) {

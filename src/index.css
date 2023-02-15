@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #ffffff;
   color: #3a4750;
   font-size: 2rem;
@@ -8,4 +8,26 @@
 }
 html {
   font-size: 62.5%;
-} */
+}
+.main-conteiner {
+  width: 500px;
+  margin: 0;
+}
+.btn {
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 3px;
+}
+
+.main-container input[type="text"] {
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  padding: 8px 10px;
+}
+
+.main-container label {
+  padding-top: 5px;
+}
