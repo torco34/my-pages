@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { PublicLink } from "../../components/PublicLink";
 import {
   existsUsername,
   getProfilePhotoUrl,
@@ -18,8 +19,11 @@ export const PublicProfileView = () => {
       const username = params.username;
       try {
         const userUid = await existsUsername(username);
+        console.log(userUid);
+
         if (userUid) {
           const userInfo = await getUserPublicProfileInfo(userUid);
+
           setProfile(userInfo);
           const url = await getProfilePhotoUrl(
             userInfo.profileInfo.profilePicture
@@ -30,12 +34,14 @@ export const PublicProfileView = () => {
         }
       } catch (error) {}
     }
-  }, []);
+  }, [params]);
 
   if (state === 7) {
-    <div>
-      <h1>Username doesn't exist</h1>
-    </div>;
+    return (
+      <div>
+        <h1>Username doesn't exist</h1>
+      </div>
+    );
   }
   return (
     <div>
@@ -43,13 +49,11 @@ export const PublicProfileView = () => {
         <img src={url} alt="url" />
       </div>
       <h2>{profile?.profileInfo.username}</h2>
-
+      <h2>{profile?.profileInfo.displayName}</h2>
       <div>
         Links
         {profile?.LinksInfo.map((link) => (
-          <div>
-            <a href={link.url}>{link.title} </a>
-          </div>
+          <PublicLink key={link.docId} url={link.url} title={link.title} />
         ))}
       </div>
     </div>

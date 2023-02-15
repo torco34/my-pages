@@ -40,7 +40,7 @@ export const EditProfileView = () => {
       fileReader.onload = async function () {
         const imageData = fileReader.result;
         const res = await setUserProfilePhoto(currentUser.uid, imageData);
-        console.log(res);
+        // console.log(res);
         if (res) {
           const tmpUser = { ...currentUser };
           tmpUser.profilePicture = res.metadata.fullPath;

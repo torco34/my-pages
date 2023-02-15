@@ -22,11 +22,11 @@ function App() {
         <DashboardWrapper />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="login" element={<LoginView />} />
-          <Route path="deshboar" element={<DashView />} />
-          <Route path="deshboar/profile" element={<EditProfileView />} />
+          <Route path="/login" element={<LoginView />} />
+          <Route path="/dashboard" element={<DashView />} />
+          <Route path="/dashboard/profile" element={<EditProfileView />} />
           <Route path="signout" element={<SignOutView />} />
-          <Route path="/u" element={<PublicProfileView />} />
+          <Route path="u/:username" element={<PublicProfileView />} />
           <Route path="choose-username" element={<ChooseUserName />} />
         </Routes>
       </BrowserRouter>
