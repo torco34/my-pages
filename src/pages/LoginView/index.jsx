@@ -1,21 +1,19 @@
-import React from "react";
-import { auth, userExists } from "../firebase/firebase";
-// import { async } from "@firebase/util";
+import { useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
 } from "firebase/auth";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { async } from "@firebase/util";
-import { AuthProvaide } from "../components/AuthProvaide";
-
+import { auth, userExists } from "../../firebase/firebase";
+import {} from "firebase/auth";
+import { AuthProvaide } from "../../components/AuthProvaide";
+import { Button, LoginViewsFather } from "./styles";
 export const LoginView = () => {
   const navigate = useNavigate();
   /*
   state
-  o: inicializar
+  o: inicializa
   1: login 
   2: login completo
   3:login pero sin registro
@@ -57,7 +55,7 @@ export const LoginView = () => {
     async function signInWithGoogle(googleProvider) {
       try {
         const res = await signInWithPopup(auth, googleProvider);
-        console.log(res);
+        // console.log(res);
       } catch (error) {
         console.error(error);
       }
@@ -73,27 +71,30 @@ export const LoginView = () => {
     setCurrentsState(4);
   }
 
-  if (state === 2) {
-    return <div> Estas autenticado y registrado</div>;
-  }
-  if (state === 3) {
-    return <div> Estas autenticad pero no registrado</div>;
-  }
+  // if (state === 2) {
+  //   return <div> Estas autenticado y registrado</div>;
+  // }
+  // if (state === 3) {
+  //   return <div> Estas autenticad pero no registrado</div>;
+  // }
   if (state === 4) {
     return (
-      <>
-        <button onClick={handleOnClick}>Login with Google</button>
-      </>
+      <LoginViewsFather>
+        <div>
+          <h2>Link tree</h2>
+        </div>
+        <Button onClick={handleOnClick}>Login with Google</Button>
+      </LoginViewsFather>
     );
   }
 
-  if (state === 5) {
-    return (
-      <>
-        <button onClick={handleOnClick}>Login with Google</button>
-      </>
-    );
-  }
+  // if (state === 5) {
+  //   return (
+  //     <>
+  //       <button onClick={handleOnClick}>Login with Google</button>
+  //     </>
+  //   );
+  // }
   return (
     <AuthProvaide
       onUserLoggedIn={handleUserLoggedIn}

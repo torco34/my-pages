@@ -1,19 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthProvaide } from "../components/AuthProvaide";
-import { existsUsername, updateUser } from "../firebase/firebase";
-
+import { AuthProvaide } from "../../components/AuthProvaide";
+// import { ChooUserFather } from "./styles";
+import { Button, Input, FatherUneversal, To } from "../../GlobalStyles";
+import { existsUsername, updateUser } from "../../firebase/firebase";
 export const ChooseUserName = () => {
+  const navigate = useNavigate();
   const [state, setState] = useState(0);
   const [currentUser, setCurrentUser] = useState({});
   const [username, setUsername] = useState("");
-  const navigate = useNavigate();
   function handleUserLoggedIn(user) {
-    navigate("/deshboar");
+    navigate("/dashboard");
   }
   function handleOnUserNotRegiste(user) {
-    navigates("/choose-username");
     setCurrentUser(user);
     setState(3);
   }
@@ -43,27 +43,28 @@ export const ChooseUserName = () => {
 
   if (state === 3 || state === 5) {
     return (
-      <div>
+      <FatherUneversal>
         <h1> Bienvenido {currentUser.displayName}</h1>
         <p>Para terminar el proceso elige un nombre del usuario</p>
 
         <div>
           <p>{state === 5 ? <p>El nombre ya existe</p> : ""}</p>
-          <input type="text" onChange={handleUserName} />
+          <Input type="text" onChange={handleUserName} />
         </div>
         <div>
-          <button onClick={handleContinue}>Continuar</button>
+          <Button onClick={handleContinue}>Continuar</Button>
         </div>
-      </div>
+      </FatherUneversal>
     );
   }
   if (state === 6) {
     return (
-      <div>
-        {" "}
+      <FatherUneversal>
         <h1>felicidades ya puedes ir a la paswor</h1>
-        {/* <Link to="/deshboar">Continuar</Link> */}
-      </div>
+        <To>
+          <Link to="/dashboard">Continuar</Link>
+        </To>
+      </FatherUneversal>
     );
   }
   return (
