@@ -1,6 +1,16 @@
 import React, { useRef, useState, useEffect } from "react";
 
-export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
+import {
+  LinkTitle,
+  LinkInfo,
+  ContenedorLink,
+  BtnEdit,
+  LinkAction,
+  Input,
+} from "./styles";
+
+import { BsFillTrashFill, BsPencil } from "react-icons/bs";
+export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
   const [currentTitle, setCurrentTitle] = useState(title);
   const [currentUrl, setCurrentUrl] = useState(url);
   const [editTitle, setEditTitle] = useState(false);
@@ -44,11 +54,11 @@ export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
   }
   return (
     <>
-      <div className="link link-warning" key={docId}>
-        <div>
+      <LinkInfo>
+        <LinkTitle>
           {editTitle ? (
             <>
-              <input
+              <Input
                 ref={titleRef}
                 value={currentTitle}
                 onChange={handleOnChangeTitle}
@@ -56,19 +66,19 @@ export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
               />
             </>
           ) : (
-            <>
-              <button className="btn btn-dark m-2 " onClick={handleEditTitle}>
-                Edit
+            <BtnEdit>
+              <button className="btn " onClick={handleEditTitle}>
+                <BsPencil />
               </button>
               {currentTitle}
-            </>
+            </BtnEdit>
           )}
-        </div>
+        </LinkTitle>
 
-        <div className="link link-info">
+        <div>
           {editUrl ? (
             <>
-              <input
+              <Input
                 ref={urlRef}
                 value={currentUrl}
                 onChange={handleOnChangeUrl}
@@ -76,18 +86,21 @@ export const Linkcomp = ({ docId, title, url, onDelete, onUpdate }) => {
               />
             </>
           ) : (
-            <>
-              <button className="btn btn-dark m-2 " onClick={handleEditUrl}>
-                Edit
+            <BtnEdit>
+              <button className="btn " onClick={handleEditUrl}>
+                <BsPencil />
               </button>
               {currentUrl}
-            </>
+            </BtnEdit>
           )}
         </div>
-        <button onClick={handleOnClick} className="btn btn-danger m-2">
-          Delete
-        </button>
-      </div>
+
+        <LinkAction>
+          <button onClick={handleOnClick} className="btnDelete">
+            <BsFillTrashFill size={20} />
+          </button>
+        </LinkAction>
+      </LinkInfo>
     </>
   );
 };

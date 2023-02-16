@@ -63,7 +63,7 @@ export const EditProfileView = () => {
     );
   }
   return (
-    <DashboardWrapper>
+    <>
       <div>Edit Profile info</div>
       <div>
         <div>
@@ -79,6 +79,6 @@ export const EditProfileView = () => {
           />
         </div>
       </div>
-    </DashboardWrapper>
+    </>
   );
 };

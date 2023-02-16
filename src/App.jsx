@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DashboardWrapper } from "./components/DashboardWrapper";
-import { Header } from "./components/Hedaer";
 
 import {
   DashboarView,
@@ -18,17 +17,17 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Header /> */}
-        <DashboardWrapper />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginView />} />
-          <Route path="/dashboard" element={<DashView />} />
-          <Route path="/dashboard/profile" element={<EditProfileView />} />
-          <Route path="/signout" element={<SignOutView />} />
-          <Route path="u/:username" element={<PublicProfileView />} />
-          <Route path="/choose-username" element={<ChooseUserName />} />
-        </Routes>
+        <DashboardWrapper>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginView />} />
+            <Route path="/dashboard" element={<DashView />} />
+            <Route path="/dashboard/profile" element={<EditProfileView />} />
+            <Route path="/signout" element={<SignOutView />} />
+            <Route path="u/:username" element={<PublicProfileView />} />
+            <Route path="/choose-username" element={<ChooseUserName />} />
+          </Routes>
+        </DashboardWrapper>
       </BrowserRouter>
     </>
   );

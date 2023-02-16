@@ -5,7 +5,9 @@ import { AuthProvaide } from "../../components/AuthProvaide";
 import { DashboardWrapper } from "../../components/DashboardWrapper/index";
 import { v4 as uuidv4 } from "uuid";
 import { deleteLink, getLinks, insertNewLink } from "../../firebase/firebase";
-import { Linkcomp } from "../../components/Linkcomp";
+import { LinkComp } from "../../components/LinkComp/index";
+import { Form, InputBoton } from "./styles";
+// import { Input } from "../../GlobalStyles";
 
 export const DashView = () => {
   const navigate = useNavigate();
@@ -79,21 +81,20 @@ export const DashView = () => {
     await updateLink(docId, link);
   }
   return (
-    <DashboardWrapper>
-      <div className="container link link ">
-        <h1>dashW</h1>
-        <form action="" onSubmit={handleOnSubmit}>
+    <>
+      <Form>
+        <form className="form" action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
           <input type="text" name="title" onChange={handleOnChange} />
-          <label htmlFor="url">url</label>
+          <label htmlFor="url">Url</label>
           <input type="text" name="url" onChange={handleOnChange} />
-
-          <input type="submit" value="create nuevo link" />
+          <input className="input" type="submit" value="Create nuevo link" />
         </form>
-      </div>
+      </Form>
+
       <div>
         {links.map((link) => (
-          <Linkcomp
+          <LinkComp
             key={link.docId}
             docId={link.docId}
             url={link.url}
@@ -103,6 +104,6 @@ export const DashView = () => {
           />
         ))}
       </div>
-    </DashboardWrapper>
+    </>
   );
 };

@@ -40,3 +40,8 @@ export const To = styled.div`
     text-decoration: none;
   }
 `;
+
+export const Container = styled.div`
+  width: 500px;
+  margin: 0 auto;
+`;

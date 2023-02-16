@@ -1,21 +1,10 @@
 import React from "react";
-
+import { DashboardWrapper } from "../components/DashboardWrapper";
+import { FatherUneversal } from "../GlobalStyles";
 export const Home = () => {
   return (
-    <div>
-      {import.meta.env.VITE_APP_APIKEY}
-      <br />
-      {import.meta.env.VITE_APP_AUTHDOMAIN}
-      <br />
-      {import.meta.env.VITE_APP_PROJECTID}
-      <br />
-      {import.meta.env.VITE_APP_STORAGEBUCKET}
-      <br />
-      {import.meta.env.VITE_APP_MASSAGINGSENDERID}
-      <br />
-
-      <br></br>
-      {import.meta.env.VITE_APP_APPID}
-    </div>
+    <FatherUneversal>
+      <h1>Bienvenidos</h1>
+    </FatherUneversal>
   );
 };
