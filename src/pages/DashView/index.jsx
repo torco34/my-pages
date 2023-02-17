@@ -95,7 +95,7 @@ export const DashView = () => {
       <div>
         {links.map((link) => (
           <LinkComp
-            key={link.docId}
+            key={link.id}
             docId={link.docId}
             url={link.url}
             title={link.title}

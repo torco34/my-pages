@@ -1,0 +1,23 @@
+.main-container {
+  width: 500px;
+  margin: 0 auto;
+}
+.btn {
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 3px;
+  background-color: #6096b4;
+}
+
+.main-container input[type="text"] {
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  padding: 8px 10px;
+}
+
+.main-container label {
+  padding-top: 5px;
+}

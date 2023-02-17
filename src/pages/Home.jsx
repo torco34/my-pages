@@ -1,10 +1,10 @@
 import React from "react";
 import { DashboardWrapper } from "../components/DashboardWrapper";
-import { FatherUneversal } from "../GlobalStyles";
+import style from "../GlobalStyles/globalstyle.module.css";
 export const Home = () => {
   return (
-    <FatherUneversal>
+    <div className="">
       <h1>Bienvenidos</h1>
-    </FatherUneversal>
+    </div>
   );
 };

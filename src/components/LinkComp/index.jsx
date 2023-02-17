@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import {
-  LinkTitle,
+  Link,
   LinkInfo,
-  ContenedorLink,
+  LinkTitle,
   BtnEdit,
+  BtnDelete,
   LinkAction,
-  Input,
 } from "./styles";
 
 import { BsFillTrashFill, BsPencil } from "react-icons/bs";
@@ -53,12 +53,12 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
     onDelete(docId);
   }
   return (
-    <>
+    <Link>
       <LinkInfo>
         <LinkTitle>
           {editTitle ? (
             <>
-              <Input
+              <input
                 ref={titleRef}
                 value={currentTitle}
                 onChange={handleOnChangeTitle}
@@ -67,7 +67,7 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
             </>
           ) : (
             <BtnEdit>
-              <button className="btn " onClick={handleEditTitle}>
+              <button onClick={handleEditTitle}>
                 <BsPencil />
               </button>
               {currentTitle}
@@ -77,17 +77,15 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
 
         <div>
           {editUrl ? (
-            <>
-              <Input
-                ref={urlRef}
-                value={currentUrl}
-                onChange={handleOnChangeUrl}
-                onBlur={handleOnBlurUrl}
-              />
-            </>
+            <input
+              ref={urlRef}
+              value={currentUrl}
+              onChange={handleOnChangeUrl}
+              onBlur={handleOnBlurUrl}
+            />
           ) : (
             <BtnEdit>
-              <button className="btn " onClick={handleEditUrl}>
+              <button onClick={handleEditUrl}>
                 <BsPencil />
               </button>
               {currentUrl}
@@ -96,11 +94,11 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
         </div>
 
         <LinkAction>
-          <button onClick={handleOnClick} className="btnDelete">
+          <button onClick={handleOnClick}>
             <BsFillTrashFill size={20} />
           </button>
         </LinkAction>
       </LinkInfo>
-    </>
+    </Link>
   );
 };

@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Nav, Logo, Container } from "./styles";
-
+import style from "./dashboardWre.module.css";
 export const DashboardWrapper = ({ children }) => {
   return (
     <>
-      <Nav>
-        <Logo>Logotipo</Logo>
+      <div className={style.nav}>
+        <div className={style.logo}>Logotipo</div>
         <Link to="/dashboard">Links</Link>
         <Link to="/dashboard/profile">Profile</Link>
         <Link to="/signout">Signout</Link>
-      </Nav>
-      <Container>{children}</Container>
+      </div>
+      <div className="">{children}</div>
     </>
   );
 };

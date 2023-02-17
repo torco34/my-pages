@@ -1,76 +1,51 @@
 import styled from "styled-components";
 export const ContenedorLink = styled.div`
-  /* display: flex;
-  justify-content: center;
+  display: flex;
   gap: 20px;
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
-  border: solid red 2px; */
-
-  display: flex;
-  border-radius: 3px;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  height: 79;
 `;
 export const Link = styled.div`
-  display: flex;
+  background-color: white;
   border-radius: 3px;
+  display: flex;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  height: 79;
-  /* border: solid red 2px; */
+  height: 79px;
 `;
 export const LinkAction = styled.div`
-  position: relative;
   display: flex;
   border-radius: 3px;
+  align-content: stretch;
   align-items: stretch;
   height: 100%;
-  /* border: solid red 2px; */
+  width: 100%;
+  position: relative;
+
   button {
-    position: absolute;
-    border: none;
-    padding: 0;
-    margin: 0;
-    /* border: solid pink 2px; */
-    background-color: transparent;
-    min-height: 30px;
-    color: #222;
     flex: 1;
+    position: absolute;
+    top: -34px;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    color: #c1c1c1;
     cursor: pointer;
-    right: 0px;
-    top: -50px;
+    padding: 0 20px;
 
     &:hover {
       color: red;
     }
   }
-  .btnDelete {
-    /* border: none;
-    padding: 0;
-    margin: 0;
-    border: solid pink 2px;
-    background-color: transparent;
-    min-height: 19px;
-    color: #222;
-    flex: 1;
-    cursor: pointer;
-    &:hover {
-      background-color: red;
-      color: white;
-    } */
-  }
 `;
 export const LinkInfo = styled.div`
-  width: 100%;
   padding: 10px 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
 `;
 export const LinkTitle = styled.div`
-  font-weight: bold;
-  padding: 9px 0;
-  /* border: solid blue 2px; */
+  font-weight: bolder;
+  padding: 8px 0;
 `;
 
 export const LinkUrl = styled.div`
@@ -78,32 +53,30 @@ export const LinkUrl = styled.div`
   color: #555;
   text-transform: lowercase;
 `;
-export const BtnEdit = styled.button`
-  padding: 10px 0;
-  position: relative;
-  /* width: 250px; */
-  border-radius: 3px;
-  /* margin: 18px; */
-  /* border: solid blue 2px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .btn {
-    border: none;
-    /* padding: 10px; */
-
-    /* border: solid red 2px; */
+export const BtnEdit = styled.div`
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  button {
+    border-radius: 3px;
     background-color: transparent;
-    /* height: 5px; */
-    color: #c1cc;
-    font-size: 20px;
-    cursor: pointer;
-
+    border: none;
+    height: 15px;
+    color: #c1c1c1;
     &:hover {
-      color: #222;
+      color: #000;
     }
   }
+`;
+export const BtnDelete = styled.div`
+  flex: 1;
+  min-height: 100%;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  color: #222;
+  cursor: pointer;
+  padding: 0 20px;
 `;
 
 export const Input = styled.input`

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, userExists } from "../../firebase/firebase";
 import {} from "firebase/auth";
 import { AuthProvaide } from "../../components/AuthProvaide";
-import { Button, LoginViewsFather } from "./styles";
+import style from "./loginView.module.css";
 export const LoginView = () => {
   const navigate = useNavigate();
   /*
@@ -79,12 +79,14 @@ export const LoginView = () => {
   // }
   if (state === 4) {
     return (
-      <LoginViewsFather>
+      <div className={style.loginView}>
         <div>
-          <h2>Link tree</h2>
+          <h2>Link Tree</h2>
         </div>
-        <Button onClick={handleOnClick}>Login with Google</Button>
-      </LoginViewsFather>
+        <button className={style.provaider} onClick={handleOnClick}>
+          Login with Google
+        </button>
+      </div>
     );
   }
 

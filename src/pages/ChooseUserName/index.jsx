@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../../components/AuthProvaide";
-// import { ChooUserFather } from "./styles";
-import { Button, Input, FatherUneversal, To } from "../../GlobalStyles";
+
+import style from "../../GlobalStyles/globalstyle.module.css";
 import { existsUsername, updateUser } from "../../firebase/firebase";
 export const ChooseUserName = () => {
   const navigate = useNavigate();
@@ -43,28 +43,28 @@ export const ChooseUserName = () => {
 
   if (state === 3 || state === 5) {
     return (
-      <FatherUneversal>
+      <div className="">
         <h1> Bienvenido {currentUser.displayName}</h1>
         <p>Para terminar el proceso elige un nombre del usuario</p>
 
         <div>
           <p>{state === 5 ? <p>El nombre ya existe</p> : ""}</p>
-          <Input type="text" onChange={handleUserName} />
+          <input type="text" onChange={handleUserName} />
         </div>
         <div>
-          <Button onClick={handleContinue}>Continuar</Button>
+          <button onClick={handleContinue}>Continuar</button>
         </div>
-      </FatherUneversal>
+      </div>
     );
   }
   if (state === 6) {
     return (
-      <FatherUneversal>
+      <div>
         <h1>felicidades ya puedes ir a la paswor</h1>
-        <To>
+        <div className="">
           <Link to="/dashboard">Continuar</Link>
-        </To>
-      </FatherUneversal>
+        </div>
+      </div>
     );
   }
   return (
