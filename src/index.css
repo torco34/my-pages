@@ -1,33 +1,37 @@
 body {
-  background-color: #ffffff;
-  color: #3a4750;
-  font-size: 2rem;
-  box-sizing: border-box;
-  font-family: "Abyssinica SIL", serif;
-  min-height: 100vh;
+  background-color: #f5f6f8;
+  font-family: Arial, Helvetica, sans-serif;
 }
-html {
-  font-size: 62.5%;
-}
-.main-conteiner {
+
+.main-container {
   width: 500px;
-  margin: 0;
+  margin: 0 auto;
 }
 .btn {
+  color: white;
+  background-color: #6096b4;
+  border-radius: 3px;
+  text-align: center;
   font-weight: bold;
   font-size: 18px;
   border: none;
-  color: white;
-  padding: 15px 15px;
+  padding: 15px 20px;
   border-radius: 3px;
+  margin: 10px 0;
+  min-width: 200px;
 }
 
-.main-container input[type="text"] {
+input[type="text"].input {
   border: solid 1px #ccc;
   border-radius: 3px;
   padding: 8px 10px;
 }
 
-.main-container label {
+label {
   padding-top: 5px;
+}
+a {
+  color: #6096b4;
+  font-weight: bold;
+  text-decoration: none;
 }

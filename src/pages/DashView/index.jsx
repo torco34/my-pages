@@ -6,8 +6,7 @@ import { DashboardWrapper } from "../../components/DashboardWrapper/index";
 import { v4 as uuidv4 } from "uuid";
 import { deleteLink, getLinks, insertNewLink } from "../../firebase/firebase";
 import { LinkComp } from "../../components/LinkComp/index";
-import { Form, InputBoton } from "./styles";
-// import { Input } from "../../GlobalStyles";
+import style from "./dashView.module.css";
 
 export const DashView = () => {
   const navigate = useNavigate();
@@ -82,17 +81,29 @@ export const DashView = () => {
   }
   return (
     <>
-      <Form>
-        <form className="form" action="" onSubmit={handleOnSubmit}>
-          <label htmlFor="title">Title</label>
-          <input type="text" name="title" onChange={handleOnChange} />
-          <label htmlFor="url">Url</label>
-          <input type="text" name="url" onChange={handleOnChange} />
-          <input className="input" type="submit" value="Create nuevo link" />
-        </form>
-      </Form>
+      <form
+        className={style.entryContainer}
+        action=""
+        onSubmit={handleOnSubmit}
+      >
+        <label htmlFor="title">Title</label>
+        <input
+          className="input"
+          type="text"
+          name="title"
+          onChange={handleOnChange}
+        />
+        <label htmlFor="url">Url</label>
+        <input
+          className="input"
+          type="text"
+          name="url"
+          onChange={handleOnChange}
+        />
+        <input className="btn" type="submit" value="Create nuevo link" />
+      </form>
 
-      <div>
+      <div className={style.contenedorLink}>
         {links.map((link) => (
           <LinkComp
             key={link.id}

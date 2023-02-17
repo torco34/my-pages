@@ -10,7 +10,7 @@ export const DashboardWrapper = ({ children }) => {
         <Link to="/dashboard/profile">Profile</Link>
         <Link to="/signout">Signout</Link>
       </div>
-      <div className="">{children}</div>
+      <div className="main-container">{children}</div>
     </>
   );
 };

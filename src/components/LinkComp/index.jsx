@@ -1,14 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-
-import {
-  Link,
-  LinkInfo,
-  LinkTitle,
-  BtnEdit,
-  BtnDelete,
-  LinkAction,
-} from "./styles";
-
+import style from "./llnkCompon.module.css";
 import { BsFillTrashFill, BsPencil } from "react-icons/bs";
 export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
   const [currentTitle, setCurrentTitle] = useState(title);
@@ -53,9 +44,9 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
     onDelete(docId);
   }
   return (
-    <Link>
-      <LinkInfo>
-        <LinkTitle>
+    <div className={style.link}>
+      <div className={style.linkInfo}>
+        <div className={style.linkTitle}>
           {editTitle ? (
             <>
               <input
@@ -66,16 +57,14 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
               />
             </>
           ) : (
-            <BtnEdit>
-              <button onClick={handleEditTitle}>
+            <div>
+              <button className={style.btnEdit} onClick={handleEditTitle}>
                 <BsPencil />
               </button>
               {currentTitle}
-            </BtnEdit>
+            </div>
           )}
-        </LinkTitle>
 
-        <div>
           {editUrl ? (
             <input
               ref={urlRef}
@@ -84,21 +73,21 @@ export const LinkComp = ({ docId, title, url, onDelete, onUpdate }) => {
               onBlur={handleOnBlurUrl}
             />
           ) : (
-            <BtnEdit>
-              <button onClick={handleEditUrl}>
+            <div>
+              <button className={style.btnEdit} onClick={handleEditUrl}>
                 <BsPencil />
               </button>
               {currentUrl}
-            </BtnEdit>
+            </div>
           )}
         </div>
 
-        <LinkAction>
-          <button onClick={handleOnClick}>
+        <div className={style.linkAction}>
+          <button className={style.btnDelete} onClick={handleOnClick}>
             <BsFillTrashFill size={20} />
           </button>
-        </LinkAction>
-      </LinkInfo>
-    </Link>
+        </div>
+      </div>
+    </div>
   );
 };

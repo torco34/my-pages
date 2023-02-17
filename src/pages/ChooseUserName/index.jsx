@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthProvaide } from "../../components/AuthProvaide";
 
-import style from "../../GlobalStyles/globalstyle.module.css";
+import style from "./chooseUser.module.css";
 import { existsUsername, updateUser } from "../../firebase/firebase";
 export const ChooseUserName = () => {
   const navigate = useNavigate();
@@ -43,23 +43,25 @@ export const ChooseUserName = () => {
 
   if (state === 3 || state === 5) {
     return (
-      <div className="">
+      <div className={style.ChooUser}>
         <h1> Bienvenido {currentUser.displayName}</h1>
         <p>Para terminar el proceso elige un nombre del usuario</p>
 
         <div>
           <p>{state === 5 ? <p>El nombre ya existe</p> : ""}</p>
-          <input type="text" onChange={handleUserName} />
+          <input className="input" type="text" onChange={handleUserName} />
         </div>
         <div>
-          <button onClick={handleContinue}>Continuar</button>
+          <button className="btn" onClick={handleContinue}>
+            Continuar
+          </button>
         </div>
       </div>
     );
   }
   if (state === 6) {
     return (
-      <div>
+      <div className={style.ChooUser}>
         <h1>felicidades ya puedes ir a la paswor</h1>
         <div className="">
           <Link to="/dashboard">Continuar</Link>

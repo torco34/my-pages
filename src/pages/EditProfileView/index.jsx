@@ -9,6 +9,7 @@ import {
   updateUser,
   getProfilePhotoUrl,
 } from "../../firebase/firebase";
+import style from "./editProfile.module.css";
 export const EditProfileView = () => {
   const navigate = useNavigate();
   const [state, setState] = useState(0);
@@ -64,17 +65,21 @@ export const EditProfileView = () => {
   }
   return (
     <>
-      <div>Edit Profile info</div>
-      <div>
+      <h2>Edit Profile info</h2>
+
+      <div className={style.profilePintureContainer}>
         <div>
           <img src={profileUrl} alt="imgen" width={150} />
         </div>
+
         <div>
-          <button onClick={handleOpenFilePiker}>Choose new profilr</button>
+          <button className="btn" onClick={handleOpenFilePiker}>
+            Choose new profilr
+          </button>
           <input
+            className={style.fileInput}
             ref={fileRef}
             type="file"
-            style={{ display: "none" }}
             onChange={handleOnChengeFile}
           />
         </div>
