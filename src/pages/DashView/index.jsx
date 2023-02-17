@@ -100,7 +100,7 @@ export const DashView = () => {
           name="url"
           onChange={handleOnChange}
         />
-        <input className="btn" type="submit" value="Create nuevo link" />
+        <input className="btns" type="submit" value="Create nuevo link" />
       </form>
 
       <div className={style.contenedorLink}>

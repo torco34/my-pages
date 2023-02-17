@@ -52,7 +52,7 @@ export const ChooseUserName = () => {
           <input className="input" type="text" onChange={handleUserName} />
         </div>
         <div>
-          <button className="btn" onClick={handleContinue}>
+          <button className="btns" onClick={handleContinue}>
             Continuar
           </button>
         </div>

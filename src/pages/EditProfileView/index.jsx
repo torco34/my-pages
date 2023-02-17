@@ -65,7 +65,7 @@ export const EditProfileView = () => {
   }
   return (
     <>
-      <h2>Edit Profile info</h2>
+      <h2>Edit Profile </h2>
 
       <div className={style.profilePintureContainer}>
         <div>
@@ -73,7 +73,7 @@ export const EditProfileView = () => {
         </div>
 
         <div>
-          <button className="btn" onClick={handleOpenFilePiker}>
+          <button className="btns" onClick={handleOpenFilePiker}>
             Choose new profilr
           </button>
           <input
